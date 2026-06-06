@@ -1,4 +1,4 @@
-FROM alpine:3.20
+FROM alpine:3.23
 
 # Install Dropbear server and OpenSSH client (needed strictly for the scp binary)
 RUN apk add --no-cache dropbear openssh-client
