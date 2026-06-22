@@ -1,13 +1,14 @@
-FROM alpine:3.23
+FROM node:alpine AS install
 
-# Install Dropbear server and OpenSSH client (needed strictly for the scp binary)
-RUN apk add --no-cache dropbear openssh-client
+COPY / /app
+WORKDIR /app
+RUN npm install
 
-# Copy the initialization entrypoint script
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
 
-# Expose the default container port
-EXPOSE 22
+FROM node:alpine
+COPY --from=install /app /app
 
-ENTRYPOINT ["/entrypoint.sh"]
+WORKDIR /app
+EXPOSE 3128
+
+ENTRYPOINT ["npm", "start"]

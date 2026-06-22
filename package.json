@@ -1,0 +1,13 @@
+{
+  "name": "pac-proxy",
+  "version": "1.0.0",
+  "description": "Just a repo for me to stuff boring containers into and have GHA build them for me",
+  "main": "index.js",
+  "scripts": {
+    "start": "proxy-pac-proxy start -f -a 0.0.0.0 -p 3128"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "proxy-pac-proxy": "^1.0.12"
+  }
+}
