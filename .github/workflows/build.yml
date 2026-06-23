@@ -28,7 +28,7 @@ jobs:
       - uses: docker/metadata-action@v5
         id: meta
         with:
-          images: ghcr.io/${{ github.repository_owner }}/container/dropbear
+          images: ghcr.io/${{ github.repository_owner }}/container/pac-proxy
           tags: |
             type=sha,prefix=
             type=raw,value=latest
